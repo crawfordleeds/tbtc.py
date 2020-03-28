@@ -27,7 +27,12 @@ class TBTC(object):
                 )
             )
         ):
-            raise Exception("")
+            raise Exception(
+                f"""Ethereum network {config.web3.net.version} and Bitcoin network {config.bitcoinNetwork} are not both
+                on testnet or both on  mainnet. Quitting while we're ahead. Developers can also pass false as the
+                networkMatchCheck parameter to suppress this error.
+                """
+            )
 
         self.depositFactory = depositFactory
         self.config = config
